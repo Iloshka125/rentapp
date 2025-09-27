@@ -1,0 +1,10 @@
+.register-overlay-animate {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.register-overlay-hide {
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+} 

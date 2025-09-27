@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+@plugin "daisyui"{
+    themes: light --default;
+}
+
+@media (max-width: 768px) {
+  .card img {
+    height: 200px;
+    object-fit: contain;
+    
+  }
+}
+
+
+  
+body{
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.ml-8 {
+  margin-left: 2rem;
+}
+
+.form-text-bold{
+  font-weight: bold;
+}
+
+.react-datepicker {
+  z-index: 9999 !important;
+}
+.react-datepicker__header {
+  background-color: #f9fafb;
+  border-bottom: 1px solid #e2e8f0;
+}
+.react-datepicker__day--selected {
+  background-color: #ffd700;
+  color: white;
+}
