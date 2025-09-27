@@ -1,0 +1,99 @@
+.city-modal-search-label {
+  display: flex;
+  align-items: stretch;
+  height: 50px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-radius: 17px;
+  border: 2px solid #504e4a;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+}
+.city-modal-search-input {
+  height: 50px;
+  line-height: 50px;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 0 22px;
+  font-size: 20px;
+  flex: 1 1 auto;
+  background: transparent;
+  margin: 0;
+  color: #504e4a;
+}
+.city-modal-search-icon {
+  border-left: 2px solid #504e4a;
+  background: #FFDC64;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;
+  width: 70px;
+  height: 50px;
+  margin: 0;
+  transition: background 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+.city-modal-search-icon img {
+  width: 28px;
+  height: 28px;
+  transition: filter 0.2s;
+  filter: none;
+  display: block;
+}
+.city-modal-search-icon:hover {
+  background: #53515E !important;
+}
+.city-modal-search-icon:hover img {
+  filter: invert(83%) sepia(60%) saturate(750%) hue-rotate(360deg) brightness(110%) contrast(105%);
+}
+
+.city-modal-animate {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes cityModalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.city-modal-city {
+  transition: color 0.18s cubic-bezier(0.4,0,0.2,1), font-size 0.18s cubic-bezier(0.4,0,0.2,1);
+}
+
+.city-modal-hide {
+  opacity: 0;
+  transform: scale(0.96);
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1), transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+.city-modal-overlay {
+  background: rgba(0,0,0,0.18);
+  transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.city-modal-hide.city-modal-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.city-modal-overlay-animate {
+  opacity: 1;
+  transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.city-modal-overlay-hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);
+} 

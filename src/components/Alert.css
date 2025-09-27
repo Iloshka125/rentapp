@@ -1,0 +1,128 @@
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.alert-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.alert-hidden {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.alert-content {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 12px;
+}
+
+.alert-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.alert-message {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #374151;
+}
+
+.alert-close {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #9CA3AF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.alert-close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #6B7280;
+}
+
+/* Типы алертов */
+.alert-success {
+  background-color: #F0FDF4;
+  border: 1px solid #BBF7D0;
+}
+
+.alert-success .alert-icon {
+  background-color: #10B981;
+  color: white;
+}
+
+.alert-error {
+  background-color: #FEF2F2;
+  border: 1px solid #FECACA;
+}
+
+.alert-error .alert-icon {
+  background-color: #EF4444;
+  color: white;
+}
+
+.alert-warning {
+  background-color: #FFFBEB;
+  border: 1px solid #FED7AA;
+}
+
+.alert-warning .alert-icon {
+  background-color: #F59E0B;
+  color: white;
+}
+
+.alert-info {
+  background-color: #EFF6FF;
+  border: 1px solid #BFDBFE;
+}
+
+.alert-info .alert-icon {
+  background-color: #3B82F6;
+  color: white;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .alert {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+  
+  .alert-content {
+    padding: 12px;
+  }
+  
+  .alert-message {
+    font-size: 16px;
+  }
+}

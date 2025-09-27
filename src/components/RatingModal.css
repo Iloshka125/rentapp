@@ -1,0 +1,147 @@
+/* Анимации для модального окна */
+.rating-modal-animate {
+    animation: ratingModalShow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rating-modal-hide {
+    animation: ratingModalHide 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes ratingModalShow {
+    0% {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes ratingModalHide {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+}
+
+/* Основные стили модального окна */
+.rating-modal-animate {
+    width: 595px !important;
+    height: 695px !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Разделяющая полоса */
+.separator-line {
+    width: 515px;
+    height: 1px;
+    background-color: #504e4a;
+    margin: 0 auto;
+}
+
+/* Область содержимого */
+.content-area {
+    padding: 12px 12px;
+    flex: 1;
+}
+
+/* Стили для пустого состояния */
+.no-ratings-content {
+    width: 500px;
+    text-align: left;
+}
+
+.no-ratings-title {
+    font-size: 30px;
+    font-weight: 500;
+    color: #53515E;
+    margin-bottom: 20px;
+}
+
+.no-ratings-description {
+    font-size: 30px;
+    font-weight: 400;
+    color: #53515E;
+    line-height: 1.4;
+}
+
+/* Сетка товаров для оценки */
+.ratings-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px;
+    width: 90%;
+    padding: 0;
+    justify-items: center;
+    margin: 0 auto;
+}
+
+/* Стили для блока товара */
+.rating-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Стили для изображения товара */
+.item-image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-image img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* Стили для звезд */
+.item-stars {
+    display: flex;
+    gap: 0px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.star-rating {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    filter: grayscale(100%) brightness(0.7);
+}
+
+.star-rating:hover {
+    filter: brightness(0) saturate(100%) invert(83%) sepia(31%) saturate(638%) hue-rotate(359deg) brightness(103%) contrast(107%);
+    transform: scale(1.1);
+}
+
+.star-active {
+    filter: brightness(0) saturate(100%) invert(83%) sepia(31%) saturate(638%) hue-rotate(359deg) brightness(103%) contrast(107%);
+}
+
+/* Стили для описания товара */
+.item-description {
+    font-size: 18px;
+    color: #53515E;
+    line-height: 1.2;
+    max-height: 2.4em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-align: left;
+    width: 150px;
+}
