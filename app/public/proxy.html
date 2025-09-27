@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Proxy</title>
+</head>
+<body>
+    <script>
+        // Простой прокси для обхода Mixed Content
+        window.addEventListener('message', async (event) => {
+            if (event.data.type === 'API_REQUEST') {
+                try {
+                    const { url, options, messageId } = event.data;
+                    const response = await fetch(url, options);
+                    const data = await response.json();
+                    
+                    event.source.postMessage({
+                        type: 'API_RESPONSE',
+                        messageId,
+                        data
+                    }, event.origin);
+                } catch (error) {
+                    event.source.postMessage({
+                        type: 'API_RESPONSE',
+                        messageId,
+                        error: error.message
+                    }, event.origin);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

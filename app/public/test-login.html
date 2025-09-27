@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login API Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 3px; overflow-x: auto; }
+        button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+        input { padding: 8px; margin: 5px; width: 200px; }
+    </style>
+</head>
+<body>
+    <h1>🔐 Login API Test Page</h1>
+    
+    <div class="test-section">
+        <h3>Test Login Endpoint</h3>
+        <input type="email" id="email" placeholder="Email" value="test@example.com">
+        <input type="password" id="password" placeholder="Password" value="test123">
+        <button onclick="testLogin()">Test Login</button>
+        <pre id="login-result"></pre>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Registration Endpoint</h3>
+        <input type="text" id="reg-name" placeholder="Name" value="Test User">
+        <input type="email" id="reg-email" placeholder="Email" value="test@example.com">
+        <input type="password" id="reg-password" placeholder="Password" value="test123">
+        <button onclick="testRegister()">Test Register</button>
+        <pre id="register-result"></pre>
+    </div>
+
+    <div class="test-section">
+        <h3>Test Auth Check</h3>
+        <button onclick="testAuth()">Test Auth Check</button>
+        <pre id="auth-result"></pre>
+    </div>
+
+    <script>
+        async function testLogin() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const resultElement = document.getElementById('login-result');
+            
+            try {
+                const response = await fetch('/api/user/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const responseText = await response.text();
+                
+                resultElement.textContent = `Status: ${response.status}\n`;
+                resultElement.textContent += `Headers: ${JSON.stringify(Object.fromEntries(response.headers.entries()), null, 2)}\n`;
+                resultElement.textContent += `Response: ${responseText}`;
+                
+                if (response.ok) {
+                    resultElement.parentElement.className = 'test-section success';
+                } else {
+                    resultElement.parentElement.className = 'test-section error';
+                }
+                
+            } catch (error) {
+                resultElement.textContent = `Error: ${error.message}`;
+                resultElement.parentElement.className = 'test-section error';
+            }
+        }
+
+        async function testRegister() {
+            const name = document.getElementById('reg-name').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+            const resultElement = document.getElementById('register-result');
+            
+            try {
+                const response = await fetch('/api/user/registration', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                const responseText = await response.text();
+                
+                resultElement.textContent = `Status: ${response.status}\n`;
+                resultElement.textContent += `Headers: ${JSON.stringify(Object.fromEntries(response.headers.entries()), null, 2)}\n`;
+                resultElement.textContent += `Response: ${responseText}`;
+                
+                if (response.ok) {
+                    resultElement.parentElement.className = 'test-section success';
+                } else {
+                    resultElement.parentElement.className = 'test-section error';
+                }
+                
+            } catch (error) {
+                resultElement.textContent = `Error: ${error.message}`;
+                resultElement.parentElement.className = 'test-section error';
+            }
+        }
+
+        async function testAuth() {
+            const resultElement = document.getElementById('auth-result');
+            
+            try {
+                const response = await fetch('/api/user/auth', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                const responseText = await response.text();
+                
+                resultElement.textContent = `Status: ${response.status}\n`;
+                resultElement.textContent += `Headers: ${JSON.stringify(Object.fromEntries(response.headers.entries()), null, 2)}\n`;
+                resultElement.textContent += `Response: ${responseText}`;
+                
+                if (response.ok) {
+                    resultElement.parentElement.className = 'test-section success';
+                } else {
+                    resultElement.parentElement.className = 'test-section error';
+                }
+                
+            } catch (error) {
+                resultElement.textContent = `Error: ${error.message}`;
+                resultElement.parentElement.className = 'test-section error';
+            }
+        }
+    </script>
+</body>
+</html>

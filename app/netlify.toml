@@ -1,0 +1,59 @@
+[build]
+  # Команда для сборки проекта
+  command = "npm run build"
+  
+  # Папка с собранными файлами
+  publish = "dist"
+  
+  # Обработка SPA (Single Page Application)
+  functions = "netlify/functions"
+
+[build.environment]
+  # Версия Node.js для сборки
+  NODE_VERSION = "18"
+
+# Настройки для API проксирования (ДОЛЖНО БЫТЬ ПЕРВЫМ!)
+[[redirects]]
+  from = "/api/*"
+  to = "https://iloosip.online/api/:splat"
+  status = 307
+  force = true
+  headers = {X-From = "Netlify"}
+
+# Проксирование для загрузки изображений
+[[redirects]]
+  from = "/uploads/*"
+  to = "https://iloosip.online/uploads/:splat"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
+
+# Перенаправления для SPA (ДОЛЖНО БЫТЬ ПОСЛЕДНИМ!)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Заголовки для безопасности
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Заголовки для статических файлов
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Настройки для CORS
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization, X-Requested-With"
+    Access-Control-Max-Age = "86400"

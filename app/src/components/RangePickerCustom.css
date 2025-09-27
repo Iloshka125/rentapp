@@ -1,0 +1,174 @@
+/* Стили для кастомного RangePicker */
+.custom-range-picker {
+  width: 100% !important;
+  height: 50px !important;
+  border-radius: 17px !important;
+  font-size: 15px !important;
+  border: 2px solid #53515E !important;
+  background: #fff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+}
+.custom-range-picker .ant-picker-input {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  gap: 0.5em;
+}
+.custom-range-picker input {
+  text-align: center !important;
+  font-size: 15px !important;
+  color: #53515E !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 0.5em !important;
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.custom-range-picker .ant-picker-suffix {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 100% !important;
+}
+.custom-range-picker:hover,
+.custom-range-picker:focus-within {
+  border-color: #FFDC64 !important;
+}
+.custom-range-picker:active,
+.custom-range-picker:focus-within,
+.publication-range-picker.custom-range-picker:active,
+.publication-range-picker.custom-range-picker:focus-within,
+.card-range-picker.custom-range-picker:active,
+.card-range-picker.custom-range-picker:focus-within {
+  border-color: #000 !important;
+}
+.custom-range-picker .ant-picker-active-bar {
+  display: none !important;
+}
+.custom-range-picker .ant-picker-input > input::placeholder {
+  color: #605F6D80 !important;
+  opacity: 1;
+}
+.custom-range-picker .ant-picker-clear {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 100% !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  right: 12px !important;
+}
+.custom-range-picker .ant-picker-range-separator {
+  color: #53515E !important;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-range-picker .ant-picker-cell-in-range::before,
+.custom-range-picker .ant-picker-cell-range-start::before,
+.custom-range-picker .ant-picker-cell-range-end::before {
+  background: #FFDC64 !important;
+}
+.custom-range-picker .ant-picker-cell-in-range .ant-picker-cell-inner,
+.custom-range-picker .ant-picker-cell-range-start .ant-picker-cell-inner,
+.custom-range-picker .ant-picker-cell-range-end .ant-picker-cell-inner {
+  background: #FFDC64 !important;
+  color: #53515E !important;
+  border-radius: 0 !important;
+}
+.custom-range-picker .ant-picker-cell-range-start .ant-picker-cell-inner {
+  border-top-left-radius: 50% !important;
+  border-bottom-left-radius: 50% !important;
+}
+.custom-range-picker .ant-picker-cell-range-end .ant-picker-cell-inner {
+  border-top-right-radius: 50% !important;
+  border-bottom-right-radius: 50% !important;
+}
+.custom-range-picker .ant-picker-cell-in-range.ant-picker-cell-in-view::before,
+.custom-range-picker .ant-picker-cell-range-start.ant-picker-cell-in-view::before,
+.custom-range-picker .ant-picker-cell-range-end.ant-picker-cell-in-view::before {
+  background: #FFDC64 !important;
+}
+.custom-range-picker .ant-picker-cell-in-range.ant-picker-cell-in-view .ant-picker-cell-inner,
+.custom-range-picker .ant-picker-cell-range-start.ant-picker-cell-in-view .ant-picker-cell-inner,
+.custom-range-picker .ant-picker-cell-range-end.ant-picker-cell-in-view .ant-picker-cell-inner {
+  background: #FFDC64 !important;
+  color: #53515E !important;
+  border-radius: 0 !important;
+}
+.custom-range-picker .ant-picker-cell-range-start.ant-picker-cell-in-view .ant-picker-cell-inner {
+  border-top-left-radius: 50% !important;
+  border-bottom-left-radius: 50% !important;
+}
+.custom-range-picker .ant-picker-cell-range-end.ant-picker-cell-in-view .ant-picker-cell-inner {
+  border-top-right-radius: 50% !important;
+  border-bottom-right-radius: 50% !important;
+}
+.custom-range-picker .ant-picker-panels {
+  min-width: 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.custom-range-picker .ant-picker-dropdown {
+  min-width: 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.custom-range-picker .ant-picker-panel-container {
+  min-width: 100% !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.custom-range-picker .ant-picker-cell-inner {
+  min-width: 44px !important;
+  height: 44px !important;
+  font-size: 18px !important;
+}
+.custom-range-picker-dropdown {
+  left: 50% !important;
+  right: auto !important;
+  transform: translateX(-50%) !important;
+  box-sizing: border-box !important;
+}
+.custom-range-picker-dropdown .ant-picker-range-wrapper,
+.custom-range-picker-dropdown .ant-picker-panels,
+.custom-range-picker-dropdown .ant-picker-panel-container,
+.custom-range-picker-dropdown .ant-picker-panel {
+  box-sizing: border-box !important;
+}
+.custom-range-picker-dropdown .ant-picker-cell-inner {
+  min-width: 32px !important;
+  height: 32px !important;
+  font-size: 16px !important;
+}
+.card-range-picker.custom-range-picker,
+.card-range-picker.custom-range-picker input {
+  font-size: 15px !important;
+}
+.publication-range-picker.custom-range-picker,
+.publication-range-picker.custom-range-picker input {
+  font-size: 22px !important;
+}
+.price-input-wrapper:active,
+.price-input-wrapper:focus-within {
+  border-color: #000 !important;
+}
+.custom-range-picker:hover {
+  cursor: pointer !important;
+}
+.custom-range-picker input:hover {
+  cursor: pointer !important;
+} 
